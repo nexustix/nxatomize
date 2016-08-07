@@ -38,10 +38,12 @@ func main() {
 
 		providers.AddEntry(bp.StringAtIndex(2, args), bp.StringAtIndex(3, args))
 		providers.SaveEntries()
-		os.Exit(0)
+		return
+		//os.Exit(0)
 	case "del provider":
 		providers.RemoveEntry(bp.StringAtIndex(2, args))
 		providers.SaveEntries()
+		return
 	}
 
 	//providerID := bp.StringAtIndex(1, args)
