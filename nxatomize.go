@@ -51,19 +51,19 @@ func main() {
 	//switch atom management
 	switch providerAction {
 	case "search":
-		fmt.Printf("search\n")
+		//fmt.Printf("search\n")
 		doSearch(args, providers, &atomManager)
 
 	case "depsearch":
 		//atomDir := nrc.InitWorkFolder(workingDir, ".nxreplicator", path.Join("atoms", bp.StringAtIndex(1, args)))
 		//providerDir := nrc.InitWorkFolder(workingDir, ".nxreplicator", path.Join("providers", bp.StringAtIndex(1, args)))
-		fmt.Printf("depsearch\n")
+		//fmt.Printf("depsearch\n")
 		doDepsearch(args, providers, &atomManager)
 
 	case "downinfo":
 		//atomDir := nrc.InitWorkFolder(workingDir, ".nxreplicator", path.Join("atoms", bp.StringAtIndex(1, args)))
 		//providerDir := nrc.InitWorkFolder(workingDir, ".nxreplicator", path.Join("providers", bp.StringAtIndex(1, args)))
-		fmt.Printf("downinfo\n")
+		//fmt.Printf("downinfo\n")
 		doDownInfo(args, providers)
 
 	}

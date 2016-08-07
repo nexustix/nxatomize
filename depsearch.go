@@ -40,9 +40,9 @@ func doDepsearch(args []string, providers nrc.ProviderList, atomManager *nrc.Ato
 				tmpAtom.Dependencies = bp.EliminateDuplicates(tmpAtom.Dependencies)
 				tmpAtom.DoDepCheck = false
 				atomManager.SetEntry(providerID, tmpAtom)
-				fmt.Printf(">%v<\n", tmpAtom)
+				//fmt.Printf(">%v<\n", tmpAtom)
 
-				fmt.Println("<~> >" + string(out) + "<")
+				//fmt.Println("<~> >" + string(out) + "<")
 			}
 		} else {
 			fmt.Printf("<!> ERROR command of '%s' empty\n", providerID)

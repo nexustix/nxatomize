@@ -23,7 +23,7 @@ func doDownInfo(args []string, providers nrc.ProviderList) {
 			providerCommand := exec.Command(providerPath, providerAction, providerQuerry)
 			out, err := providerCommand.Output()
 			bp.FailError(err)
-			fmt.Println(string(out))
+			fmt.Print(string(out))
 
 		} else {
 			fmt.Printf("<!> ERROR command of '%s' empty\n", providerID)

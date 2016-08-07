@@ -45,15 +45,17 @@ func doSearch(args []string, providers nrc.ProviderList, atomManager *nrc.AtomMa
 					fmt.Printf("</> EXEC >%s %s %s %s<\n", "nxatomize", providerID, "depsearch", v.ID)
 					//FIXME potentially dangerous if one is careless
 					providerCommand := exec.Command("nxatomize", providerID, "depsearch", v.ID)
-					_, err := providerCommand.Output()
+					output, err := providerCommand.Output()
 					if bp.GotError(err) {
 						fmt.Printf("<!> ERROR getting deps of: '%s'\n", v.ID)
 					} else {
+						fmt.Printf("%s", output)
 						fmt.Printf("<-> done getting deps of: '%s'\n", v.ID)
 					}
 				} else {
 					fmt.Printf("<-> deps of '%s' already indexed\n", v.ID)
 				}
+				fmt.Println("#####")
 			}
 			//*/
 
