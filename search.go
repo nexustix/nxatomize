@@ -13,10 +13,10 @@ func doSearch(args []string, providers nrc.ProviderList, atomManager *nrc.AtomMa
 	//providerDir := nrc.InitWorkFolder(workingDir, ".nxreplicator", path.Join("providers", bp.StringAtIndex(1, args)))
 
 	var providerPath string
-	providerPath = providers.GetEntry(bp.StringAtIndex(1, args)).Path
+	providerPath = providers.GetEntry(bp.StringAtIndex(2, args)).Path
 
-	providerID := bp.StringAtIndex(1, args)
-	providerAction := bp.StringAtIndex(2, args)
+	providerID := bp.StringAtIndex(2, args)
+	providerAction := bp.StringAtIndex(1, args)
 	providerQuerry := bp.StringAtIndex(3, args)
 
 	//providers.GetEntry(bp.StringAtIndex(1, args)
@@ -42,9 +42,9 @@ func doSearch(args []string, providers nrc.ProviderList, atomManager *nrc.AtomMa
 
 				tmpAtom := atomManager.GetEntry(providerID, v.ID)
 				if tmpAtom.DoDepCheck {
-					fmt.Printf("</> EXEC >%s %s %s %s<\n", "nxatomize", providerID, "depsearch", v.ID)
+					fmt.Printf("</> EXEC >%s %s %s %s<\n", "nxatomize", "depsearch", providerID, v.ID)
 					//FIXME potentially dangerous if one is careless
-					providerCommand := exec.Command("nxatomize", providerID, "depsearch", v.ID)
+					providerCommand := exec.Command("nxatomize", "depsearch", providerID, v.ID)
 					output, err := providerCommand.Output()
 					if bp.GotError(err) {
 						fmt.Printf("<!> ERROR getting deps of: '%s'\n", v.ID)

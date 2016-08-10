@@ -12,10 +12,10 @@ import (
 func doDepsearch(args []string, providers nrc.ProviderList, atomManager *nrc.AtomManager) {
 
 	var providerPath string
-	providerPath = providers.GetEntry(bp.StringAtIndex(1, args)).Path
+	providerPath = providers.GetEntry(bp.StringAtIndex(2, args)).Path
 
-	providerID := bp.StringAtIndex(1, args)
-	providerAction := bp.StringAtIndex(2, args)
+	providerID := bp.StringAtIndex(2, args)
+	providerAction := bp.StringAtIndex(1, args)
 	providerQuerry := bp.StringAtIndex(3, args)
 
 	if providers.HasEntry(providerID) {

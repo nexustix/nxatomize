@@ -47,7 +47,7 @@ func main() {
 	}
 
 	//providerID := bp.StringAtIndex(1, args)
-	providerAction := bp.StringAtIndex(2, args)
+	providerAction := bp.StringAtIndex(1, args)
 	//providerQuerry := bp.StringAtIndex(3, args)
 
 	//switch atom management
@@ -66,7 +66,7 @@ func main() {
 		//atomDir := nrc.InitWorkFolder(workingDir, ".nxreplicator", path.Join("atoms", bp.StringAtIndex(1, args)))
 		//providerDir := nrc.InitWorkFolder(workingDir, ".nxreplicator", path.Join("providers", bp.StringAtIndex(1, args)))
 		//fmt.Printf("downinfo\n")
-		doDownInfo(args, providers)
+		doDownInfo(args, providers, &atomManager)
 
 	}
 	//fmt.Printf("it works !\n")
