@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	bp "github.com/nexustix/boilerplate"
-	nrc "github.com/nexustix/nxReplicatorCommon"
+	nrc "github.com/nxReplicator/nxReplicatorCommon"
 )
 
 func doDepsearch(args []string, providers nrc.ProviderList, atomManager *nrc.AtomManager) {

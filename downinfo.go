@@ -5,7 +5,7 @@ import (
 	"os/exec"
 
 	bp "github.com/nexustix/boilerplate"
-	nrc "github.com/nexustix/nxReplicatorCommon"
+	nrc "github.com/nxReplicator/nxReplicatorCommon"
 )
 
 func doDownInfo(args []string, providers nrc.ProviderList, atomManager *nrc.AtomManager) {

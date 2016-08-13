@@ -6,7 +6,7 @@ import (
 	"os/user"
 
 	bp "github.com/nexustix/boilerplate"
-	nrc "github.com/nexustix/nxReplicatorCommon"
+	nrc "github.com/nxReplicator/nxReplicatorCommon"
 )
 
 func main() {
