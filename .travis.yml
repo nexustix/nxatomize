@@ -7,17 +7,9 @@ install:
     - go get github.com/nexustix/boilerplate
     - go get github.com/nxReplicator/nxReplicatorCommon
 
-before_script:
-    - mkdir ${HOME}/dist
-    - mkdir ${HOME}/dist/win64
-    - mkdir ${HOME}/dist/lin64
-
 script:
-    - env env GOOS=linux GOARCH=amd64
-    - go build -o ${HOME}/dist/lin64/nxatomize github.com/nxReplicator/nxatomize
-    - env env GOOS=windows GOARCH=amd64
-    - go build -o ${HOME}/dist/win64/nxatomize.exe github.com/nxReplicator/nxatomize
-
+    - env env GOOS=linux GOARCH=amd64 go build -o ${HOME}/dist/lin64/nxatomize github.com/nxReplicator/nxatomize
+    
 deploy:
   provider: releases
   api_key:
@@ -25,4 +17,4 @@ deploy:
   file: "${HOME}/dist/lin64/nxatomize"
   skip_cleanup: true
   on:
-    repo: nxReplicator/nxatomize
+    tags: true
