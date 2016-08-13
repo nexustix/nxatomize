@@ -8,8 +8,8 @@ install:
     - go get github.com/nxReplicator/nxReplicatorCommon
 
 script:
-    - env GOOS=linux GOARCH=amd64 go build -o ${HOME}/dist/linux64/nxatomize github.com/nxReplicator/nxatomize
-    - env GOOS=windows GOARCH=amd64 go build -o ${HOME}/dist/windows64/nxatomize.exe github.com/nxReplicator/nxatomize
+    - env GOOS=linux GOARCH=386 go build -o ${HOME}/dist/linux64/nxatomize github.com/nxReplicator/nxatomize
+    - env GOOS=windows GOARCH=386 go build -o ${HOME}/dist/windows64/nxatomize.exe github.com/nxReplicator/nxatomize
 
 deploy:
     provider: releases
@@ -20,4 +20,4 @@ deploy:
         - "${HOME}/dist/linux64/nxatomize"
     skip_cleanup: true
     on:
-    tags: true
+        tags: true
