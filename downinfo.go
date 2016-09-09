@@ -26,7 +26,7 @@ func doDownInfo(args []string, providers nrc.ProviderList, atomManager *nrc.Atom
 
 		if providers.HasEntry(providerID) {
 			if providerPath != "" {
-				fmt.Printf("</> EXEC >%s %s %s<\n", providerPath, providerAction, providerQuerry)
+				fmt.Printf("<D> EXEC >%s %s %s<\n", providerPath, providerAction, providerQuerry)
 				providerCommand := exec.Command(providerPath, providerAction, providerQuerry)
 				out, err := providerCommand.Output()
 				bp.FailError(err)

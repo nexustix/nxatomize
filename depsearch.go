@@ -20,7 +20,7 @@ func doDepsearch(args []string, providers nrc.ProviderList, atomManager *nrc.Ato
 
 	if providers.HasEntry(providerID) {
 		if providerPath != "" {
-			fmt.Printf("<~> EXEC >%s %s %s<\n", providerPath, providerAction, providerQuerry)
+			fmt.Printf("<D> EXEC >%s %s %s<\n", providerPath, providerAction, providerQuerry)
 
 			//FIXME potentially dangerous if one is careless
 			providerCommand := exec.Command(providerPath, providerAction, providerQuerry)
@@ -34,7 +34,7 @@ func doDepsearch(args []string, providers nrc.ProviderList, atomManager *nrc.Ato
 				for _, v := range segments {
 					if v != "" {
 						tmpAtom.Dependencies = append(tmpAtom.Dependencies, v)
-						fmt.Println("<~> FOUND >" + v + "<")
+						fmt.Println("<D> FOUND >" + v + "<")
 					}
 				}
 				tmpAtom.Dependencies = bp.EliminateDuplicates(tmpAtom.Dependencies)

@@ -22,27 +22,27 @@ func doSearch(args []string, providers nrc.ProviderList, atomManager *nrc.AtomMa
 	//providers.GetEntry(bp.StringAtIndex(1, args)
 	if providers.HasEntry(providerID) {
 		if providerPath != "" {
-			fmt.Printf("</> EXEC >%s %s %s<\n", providerPath, providerAction, providerQuerry)
+			fmt.Printf("<D> EXEC >%s %s %s<\n", providerPath, providerAction, providerQuerry)
 
 			//FIXME potentially dangerous if one is careless
 			providerCommand := exec.Command(providerPath, providerAction, providerQuerry)
 			out, err := providerCommand.Output()
 			bp.FailError(err)
-			fmt.Println(string(out))
+			//fmt.Println(string(out))
 
 			//atomManager.SetEntry("curse", nrc.StringToAtom(string(out)))
 			//nrc.OutputToAtomsAndAdd("curse", string(out), &atomManager, true)
 			//XXX
-			nrc.OutputToAtomsAndAdd(providerID, string(out), atomManager, true)
+			tmpAtoms := nrc.OutputToAtomsAndAdd(providerID, string(out), atomManager, true)
 			///*
-			tmpAtoms := nrc.OutputToAtoms(string(out), true)
+			//tmpAtoms := nrc.OutputToAtoms(string(out), true)
 
 			for _, v := range tmpAtoms {
 				fmt.Printf("<-> '%s'\n", v.ID)
 
 				tmpAtom := atomManager.GetEntry(providerID, v.ID)
 				if tmpAtom.DoDepCheck {
-					fmt.Printf("</> EXEC >%s %s %s %s<\n", "nxatomize", "depsearch", providerID, v.ID)
+					fmt.Printf("<D> EXEC >%s %s %s %s<\n", "nxatomize", "depsearch", providerID, v.ID)
 					//FIXME potentially dangerous if one is careless
 					providerCommand := exec.Command("nxatomize", "depsearch", providerID, v.ID)
 					output, err := providerCommand.Output()
@@ -55,7 +55,6 @@ func doSearch(args []string, providers nrc.ProviderList, atomManager *nrc.AtomMa
 				} else {
 					fmt.Printf("<-> deps of '%s' already indexed\n", v.ID)
 				}
-				fmt.Println("#####")
 			}
 			//*/
 
