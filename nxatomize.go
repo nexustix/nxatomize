@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	version := "V.0-1-0"
+	version := "V.0-1-x"
 	fmt.Printf("<-> NxAtomize Version: %s\n", version)
 
 	args := os.Args
@@ -67,6 +67,11 @@ func main() {
 		//providerDir := nrc.InitWorkFolder(workingDir, ".nxreplicator", path.Join("providers", bp.StringAtIndex(1, args)))
 		//fmt.Printf("downinfo\n")
 		doDownInfo(args, providers, &atomManager)
+
+	case "list":
+		for k, v := range bp.GetFilesInDir(atomDir) {
+			fmt.Printf("(%v) %s\n", k, v)
+		}
 
 	}
 	//fmt.Printf("it works !\n")
